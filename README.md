@@ -22,7 +22,7 @@ Front-end MUST send a "X-CSRF-Token" header, containing the CSRF token, when req
 
 # Parameters
 1. Creating a user: {user:{email: "email_here", password: "password here"}}
-2. Updating a user: {user:{email: "New_email", password: "new_password", password_confirmation: "Your old password"}}
+2. Updating a user: {user:{email: "New_email", password: "new_password", current_password: "Your current password"}}
 3. Deleting a user: no params
 4. Signing in a user: {user:{email: "email_here", password: "password here"}}
 5. Signing out a user: no params
