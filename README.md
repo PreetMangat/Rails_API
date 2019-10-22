@@ -1,6 +1,6 @@
 # Rails_API
 
-Simple API that serves as an endpoint for user creation, updates, deletion and sessions , using the devise gem.
+JSON API that serves as an endpoint for user creation, updates, deletion and sessions , using the devise gem.
 
 Sessions are created using a session cookie (encrypted with the users ID) and a CSRF token (generated as a JSON response upon logging in, and checked during user update or deletion).
 
