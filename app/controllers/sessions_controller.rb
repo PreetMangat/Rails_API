@@ -3,12 +3,14 @@ class SessionsController < Devise::SessionsController
 
     #Extend to generate CSRF token after successful login
     def create
-        super { |resource| set_csrf_cookie }
+        self.resource = warden.authenticate!(auth_options)
+        sign_in(resource_name, resource)
+        render json: {logged_in: resource, csrf_token: form_authenticity_token}, status: :created
     end
 
-    #Extend to delete CSRF token after successful logout
     def destroy
-        super { delete_csrf_cookie }
+        signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
+        respond_to_on_destroy
     end
 
     private
